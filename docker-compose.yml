@@ -5,6 +5,8 @@ services:
       context: ./docker/php
       args:
         - TZ=${TZ}
+    ports:
+      - 10080:80
     volumes:
       - ./src:/src
       - ./logs:/var/log/php
