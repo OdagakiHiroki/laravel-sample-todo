@@ -40,7 +40,7 @@
     @endif
   </ul>
   <form class="form" method="POST" action="todo/create">
-    {{csrd_field()}}
+    {{csrf_field()}}
     <input type="text" class="title" name="title" placeholder="タイトルを入力してね">
     <textarea class="content" name="content" placeholder="内容を入力してね"></textarea>
     <input type="submit" class="todo_button" value="追加">
