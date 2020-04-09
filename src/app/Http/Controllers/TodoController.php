@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Todo;
 
@@ -10,6 +11,8 @@ class TodoController extends Controller
     public function index () {
         $runningItems = Todo::flg(1)->get();
         $doneItems = Todo::flg(0)->get();
+        Log::debug($runningItems);
+        Log::debug($doneItems);
         return view('todo', [
             'runningItems' => $runningItems,
             'doneItems' => $doneItems,

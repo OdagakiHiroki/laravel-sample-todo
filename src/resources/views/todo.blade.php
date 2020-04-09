@@ -11,12 +11,12 @@
     <li>これからやること</li>
     @if (isset($runningItems))
     @foreach($runningItems as $runningItem)
-      <li class="todo">{{htmlspecialchars($runningItems->title) ."  " .htmlspecialchars($runningItem->content)}}</li>
+      <li class="todo">{{htmlspecialchars($runningItem->title) ."  " .htmlspecialchars($runningItem->content)}}</li>
       <li>
         <form method="POST" action="/todo/update">
           {{csrf_field()}}
-          <input type="hidden" name="id" value="{{$runningItem->Id}}">
-          <input type="hidden" name="flg" value="{{$runnningItem->flg}}">
+          <input type="hidden" name="id" value="{{$runningItem->id}}">
+          <input type="hidden" name="flg" value="{{$runningItem->flg}}">
           <input type="submit" class="todo_button" value="終了">
         </form>
       </li>
