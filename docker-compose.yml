@@ -19,3 +19,19 @@ services:
       - DB_USERNAME=${DB_USER}
       - DB_PASSWORD=${DB_PASS}
       - TZ=${TZ}
+  db:
+    image: mysql:8.0
+    ports:
+      - 13306:3306
+    volumes:
+      - db-store:/var/lib/mysql
+      - ./logs:/var/log/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
+      - TZ=${TZ}
+volumes:
+  db-store:
